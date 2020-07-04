@@ -55,5 +55,5 @@ class TgBot(
         }
     }
 
-    private fun String.htmlSafe() = this.replace("<", "&lt;").replace(">", "&gt;").replace("&", "&amp;")
+    private fun String.htmlSafe() = this.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 }
