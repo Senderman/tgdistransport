@@ -1,26 +1,24 @@
 package com.senderman.tgdistransport.discord
 
+import com.google.inject.Inject
+import com.google.inject.name.Named
 import com.senderman.tgdistransport.telegram.TgBot
 import discord4j.core.DiscordClient
 import discord4j.core.GatewayDiscordClient
 import discord4j.core.event.domain.message.MessageCreateEvent
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.beans.factory.annotation.Value
-import org.springframework.stereotype.Component
 import java.io.BufferedOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.net.URL
 
-@Component
-class DiscordBot(
-        @Value("\${discordbot.token}") private val token: String,
+class DiscordBot @Inject constructor(
+        @Named("discordbot.token")
+        private val token: String,
 
-        @Autowired
         private val tgBot: TgBot
 ) {
 
-    private lateinit var gateway: GatewayDiscordClient
+    private var gateway: GatewayDiscordClient
 
     init {
         val client = DiscordClient.create(token)

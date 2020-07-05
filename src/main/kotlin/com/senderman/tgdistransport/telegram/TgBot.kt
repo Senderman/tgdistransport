@@ -1,7 +1,8 @@
 package com.senderman.tgdistransport.telegram
 
-import org.springframework.beans.factory.annotation.Value
-import org.springframework.stereotype.Component
+
+import com.google.inject.Inject
+import com.google.inject.name.Named
 import org.telegram.telegrambots.bots.TelegramLongPollingBot
 import org.telegram.telegrambots.meta.api.methods.ParseMode
 import org.telegram.telegrambots.meta.api.methods.send.SendDocument
@@ -10,20 +11,19 @@ import org.telegram.telegrambots.meta.api.methods.send.SendPhoto
 import org.telegram.telegrambots.meta.api.objects.Update
 import java.io.File
 
-@Component
-class TgBot(
-        @Value("\${tgbot.chatId}")
+class TgBot @Inject constructor(
+        @Named("tgbot.chatId")
         private val chatId: Long,
 
-        @Value("\${tgbot.token}")
+        @Named("tgbot.token")
         private val token: String,
 
-        @Value("\${tgbot.username}")
+        @Named("tgbot.username")
         private val username: String
 ) : TelegramLongPollingBot() {
 
 
-    private val pictureFormats: Array<String> = arrayOf("png", "jpg", "jpeg", "bmp")
+    private val pictureFormats: HashSet<String> = hashSetOf("png", "jpg", "jpeg", "bmp")
 
     override fun getBotUsername() = username
 

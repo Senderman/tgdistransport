@@ -15,15 +15,15 @@ Also, you can create profiles. Just create `application-PROFILENAME.properties` 
 
 Windows:
 
-`gradlew.bat build`
+`gradlew.bat shadowJar`
 
 Unix:
 
-`./gradlew build`
+`./gradlew shadowJar`
 
 ### Run
 `java -jar build/libs/tgdistransport-1.0.0.jar`
 
 If you want to use a profile, run
 
-`java -Dspring.profiles.active=PROFILENAME -jar build/libs/tgdistransport-1.0.0.jar`
+`java -Dtransport.profile=PROFILENAME -jar build/libs/tgdistransport-1.0.0.jar`
