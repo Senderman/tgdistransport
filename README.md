@@ -22,8 +22,8 @@ Unix:
 `./gradlew shadowJar`
 
 ### Run
-`java -jar build/libs/tgdistransport-1.0.0.jar`
+`java -jar build/libs/tgdistransport-1.0.0-all.jar`
 
 If you want to use a profile, run
 
-`java -Dtransport.profile=PROFILENAME -jar build/libs/tgdistransport-1.0.0.jar`
+`java -Dtransport.profile=PROFILENAME -jar build/libs/tgdistransport-1.0.0-all.jar`
