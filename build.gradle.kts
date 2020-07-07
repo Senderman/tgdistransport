@@ -20,7 +20,8 @@ repositories {
 dependencies {
 
     implementation("com.discord4j:discord4j-core:3.1.0.RC2")
-    implementation("org.telegram:telegrambots:4.9")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.google.inject:guice:4.2.3")
 
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
