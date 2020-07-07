@@ -21,11 +21,11 @@ class TgBot @Inject constructor(
         val tts = "\uD83C\uDFAE<b>[DIS]</b> ${author.htmlSafe()}:\n${caption.htmlSafe()}"
         val extension = fileUrl.replace(Regex(".*?\\.(\\w+)\$"), "\$1")
         if (extension in pictureFormats) {
-            println(telegram.sendPhoto(
+            telegram.sendPhoto(
                     chatId,
                     fileUrl,
                     tts
-            ).execute())
+            ).execute()
         } else {
             telegram.sendDocument(
                     chatId,
